@@ -1,46 +1,30 @@
 <template>
-	<div class="tarbar">
-		<router-link to='/main/index' tag = 'div'>
-			<span><Icon type="ios-home-outline" size='16px'></Icon></span>
-			<span>首页</span>
-		</router-link>
-		<router-link to='/main/order' tag = 'div'>
-			<span><Icon type="clipboard" size='16px'></Icon></span>
-			<span>订单</span>
-		</router-link>
-		<router-link to='/main/mine' tag = 'div'>
-			<span><Icon type="android-person" size='16px'></Icon></span>
-			<span>我的</span>
-		</router-link>
-	</div>
+    <div class="tarbar">
+      <router-link to="/main/message" tag = 'div'>资讯 </router-link>
+      <router-link to="/main/text2"   tag = 'div'>好友 </router-link>
+      <router-link to="/main/discover"   tag = 'div'>发现 </router-link>
+      <router-link to="/main/mine"    tag = 'div'>我的 </router-link>
+    </div>
 </template>
-
 <script>
-	
-</script>
+    export default{
+        data (){
+            return {
 
-<style lang="less" scoped>
-.wh(@w,@h){
-	width: @w;
-	height: @h;
-}
-	.tarbar{
-		background: #fff;
-		position: fixed;
-		bottom: 0;
-		display: flex;
-		font-size:14px;
-		.wh(100%,1rem);
-		div{
-			flex: 1;
-			display: flex;
-			flex-direction: column;
-			text-align: center;
-			/*line-height: 1rem;*/
-			span{
-				flex: 1;
-			}
-		}
-		
-	}
+            }
+        }
+    }
+</script>
+<style lang='less' scoped>
+   .tarbar{
+     display: flex;
+     height:1rem;
+     border-top:1px solid #ffa10d;
+     -webkit-box-flex-group: 2;
+     div{
+       flex:1;
+       text-align: center;
+       line-height: 1rem;
+     }
+   }
 </style>

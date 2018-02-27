@@ -5,17 +5,17 @@
 </template>
 
 <script>
+
 export default {
-  name: 'app'
+  name: 'app',
+  components:{
+
+  }
 }
 </script>
 
 <style>
-#app {
- font-family: '楷体';
- color: #333;
-}
-.active{
-	color: #ffb900;
-}
+    #app{
+      height:100%
+    }
 </style>

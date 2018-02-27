@@ -2,16 +2,17 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import store from './store';
-//import axios from '../node_modules/axios';
-import iView from 'iview';
-import 'iview/dist/styles/iview.css';
+import axios from '../node_modules/axios';
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
 import $ from 'jquery' ;
- 
 
-Vue.config.productionTip = false
+Vue.use(MintUI);
 
-Vue.use(iView);
-//Vue.prototype.axios = axios
+Vue.config.productionTip = false;
+
+
+Vue.prototype.axios = axios;
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -19,4 +20,4 @@ new Vue({
   store,
   template: '<App/>',
   components: { App }
-})
+});

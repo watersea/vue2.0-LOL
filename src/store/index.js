@@ -2,36 +2,56 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
-Vue.use(Vuex)
+Vue.use(Vuex);
+
 
 const store = new Vuex.Store({
 	state:{
-		title:'1111',
-		headList:[],
-		Clist:[]
+        banner:[],
+        zxlist:[],
+        team:[],
+        clunm:[]
 	},
 	mutations:{
-		get_head(state){
-			axios.post('/api/ajax/v7/home/head').then(res => {
-//				console.log(res.data)
-				state.headList = res.data.data.primary_filter;
-//				console.log(res.data.data.primary_filter)
-			})
-		},
-		get_list(state){
-			axios.post('/api/ajax/v6/poi/filter?lat=39.912911&lng=116.626799&_token=eJx9T11rg0AQ/C/70JeK3qk9e4KEgqFY1GLP+NBSil8xa6Mpem2Nof+9FxBCX7oszOwww7AnGIIKXErUcA3kqLjNmWkSwqhpMw3Kv5plOxoUQ+aD+2I5NxpjzutZeFL3Rbgw01Z7dgTKADspP1zDQP07xy5HvatRfua9Xh46Y3fo6tU+l57FdU5NTunVvm88SpnOTOZwDtq/+aLGFvtmVaI8vmGlgkS9Baq7S1W3wvcF8wXlgiM2PbhQP0ypwClI19c0ztJQiOMUF8VmnBMytsn69isURULieZtGbTRHobCy5H7AyIjFBuXoPyd3lU8et43nwc8vRk5k2A==').then(res =>{
-				console.log(res.data)
-				state.Clist = res.data.data.poilist
-			})
-		}
+    get_banner(state,data){
+        state.banner = data;
+    },
+    get_list(state,data){
+        state.zxlist = data
+    },
+    get_team(state,data){
+        state.team = data
+    },
+    get_clunm(state,data){
+        state.clunm = data
+    }
 	},
+  getters:{
+      top:state =>{
+        return state.clunm.filter(item =>item.title)
+      }
+  },
 	actions:{
-		GET_HEAD(context){
-			context.commit('get_head')
-		},
-		GET_LIST(context){
-			context.commit('get_list')
-		}
+    GET_BANNER(context){
+      axios.get('api/static/pages/news/phone/c13_list_1.shtml').then(res=>{
+        context.commit('get_banner',res.data.list)
+      })
+    },
+    GET_LIST(context){
+      axios.get('api/php_cgi/news/php/varcache_getnews.php?id=12&page=0&plat=ios&version=33').then(res=>{
+        context.commit('get_list',res.data)
+      })
+    },
+    GET_TEAM(context){
+      axios.get('api//php_cgi/lol_mobile/club/varcache_team_entrancev2.php?version=248454&plat=ios').then(res=>{
+        context.commit('get_team',res.data.clubs)
+      })
+    },
+    GET_CLUNM(context){
+      axios.get('api/static/pages/news/discovery/c21_index.js ').then(res=>{
+        context.commit('get_clunm',res.data.list);
+      });
+    }
 	}
-})
-export default store 
+});
+export default store

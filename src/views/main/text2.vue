@@ -1,6 +1,6 @@
 <template>
-    <div class="mine">
-        我的
+    <div class="friend">
+      好友
     </div>
 </template>
 <script>

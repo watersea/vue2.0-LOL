@@ -1,0 +1,10 @@
+html,body{
+  height:100%;
+  font-family: "楷体";
+}
+#app {
+  color: #333;
+}
+.active{
+  color: #ffb900;
+}

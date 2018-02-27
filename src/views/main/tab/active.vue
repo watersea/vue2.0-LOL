@@ -1,7 +1,5 @@
 <template>
-    <div class="mine">
-        我的
-    </div>
+    <div></div>
 </template>
 <script>
     export default{
